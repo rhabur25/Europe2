@@ -7,6 +7,15 @@ Included files:
 - `styles.css` — basic styling for sidebar and map
 - `script.js` — initializes the Leaflet map, adds markers, and creates a clickable sidebar
 
+Included places pinned on the map:
+- Toulouse, France — Airbus HQ and production (A320 family, A350)
+- Hamburg, Germany — assembly and finishing (A320 family, A330)
+- Seville, Spain — final assembly of the A400M
+- Broughton, Wales — wing production (A320 family, A350)
+- Filton, England — wing production (A320 family, A350)
+- Mobile, Alabama, USA — assembles A320 family for North America
+- Tianjin, China — A320 final assembly line for Asia
+
 How to run
 
 Option 1 — open locally (quickest):
