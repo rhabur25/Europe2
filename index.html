@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Airbus Sites — Interactive Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar">
+        <h1>Airbus Sites</h1>
+        <p>Click a place to pan and open its details.</p>
+        <ul id="places"></ul>
+        <footer>
+          <small>Map: OpenStreetMap • Powered by Leaflet</small>
+        </footer>
+      </aside>
+
+      <main id="map-container">
+        <div id="map"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="script.js"></script>
+  </body>
+</html>
