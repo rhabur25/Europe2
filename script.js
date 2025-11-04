@@ -30,6 +30,19 @@ const places = [
     coords: [51.5194, -2.5512],
     desc: 'Production of wings for the A320 family and A350.'
   }
+  ,
+  {
+    id: 'mobile',
+    name: 'Mobile, Alabama, USA',
+    coords: [30.6954, -88.0399],
+    desc: 'Assembles A320 family aircraft for the North American market.'
+  },
+  {
+    id: 'tianjin',
+    name: 'Tianjin, China',
+    coords: [39.3434, 117.3616],
+    desc: 'Final assembly line for the A320 family to cater to Asian demand.'
+  }
 ];
 
 // Create the map centered roughly on western/central Europe
