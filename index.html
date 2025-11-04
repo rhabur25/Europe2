@@ -6,25 +6,13 @@
     <title>Airbus Sites — Interactive Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="styles.css" />
-  <!-- MarkerCluster (handles overlapping markers with spiderfy) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   </head>
   <body>
     <div id="app">
       <aside id="sidebar">
         <h1>Airbus Sites</h1>
         <p>Click a place to pan and open its details.</p>
-
-        <div class="category airbus-category">
-          <h2>Airbus <span id="airbus-count" class="count"></span></h2>
-          <ul id="airbus-places" class="places-list"></ul>
-        </div>
-
-        <div class="category thales-category">
-          <h2>Thales Alenia Space <span id="thales-count" class="count"></span></h2>
-          <ul id="thales-places" class="places-list"></ul>
-        </div>
+        <ul id="places"></ul>
         <footer>
           <small>Map: OpenStreetMap • Powered by Leaflet</small>
         </footer>
@@ -36,7 +24,6 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -41,23 +41,6 @@ html, body {
   cursor: pointer;
 }
 
-.category { margin-top: 12px; }
-.category h2 {
-  margin: 8px 0;
-  font-size: 15px;
-}
-.places-list { list-style: none; padding: 0; margin: 0; }
-.places-list li { padding: 8px 10px; margin: 6px 0; background: #fff; border: 1px solid #e6e6ea; border-radius: 6px; cursor: pointer; }
-.count { font-weight: 600; color: #333; margin-left: 6px; font-size: 13px; }
-.place-name { font-weight: 600; }
-
-/* Company colors */
-.company-airbus .place-name { color: #0074D9; }
-.company-thales .place-name { color: #e67e22; }
-
-.airbus-category h2 { color: #0074D9; }
-.thales-category h2 { color: #e67e22; }
-
 #places li:hover { background: #f0f8ff; }
 
 #places li .place-name { font-weight: 600; }
