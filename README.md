@@ -16,6 +16,22 @@ Included places pinned on the map:
 - Mobile, Alabama, USA — assembles A320 family for North America
 - Tianjin, China — A320 final assembly line for Asia
 
+Thales Alenia Space locations (shown in orange on the map):
+- Belfast, Northern Ireland — manufacturer, assembly, integration and testing of satellite platforms; chemical and electric propulsion
+- Harwell, Oxfordshire — design authority for chemical, electric and bi-propellant propulsion; engineering and program management
+- Leuven, Belgium — automated production of solar panels and smart data
+- Hasselt, Belgium — avionics and micro-electronics for satellites and launch vehicles
+- Charleroi, Belgium — electronics and software for satellite and launch vehicle markets
+- Luxembourg — AI, data valorization, cybersecurity, digital twins and cloud-native solutions
+- Zurich, Switzerland — optical communications, photonics, remote sensing and space weather monitors
+- Toulouse, France (Thales) — telecommunications payloads, navigation, ground segments
+- Cannes, France — HQ and industrial site; telecom platforms and VHR optical instruments
+- Madrid, Spain — telecom payloads, observation instruments, RF units and digital electronics
+- Turin, Italy — pressurized modules, space transportation, exploration probes and orbital infrastructure
+- Gorgonzola, Italy — radar observation, telecommunications, antennas and transponders
+- L'Aquila, Italy — radar observation, telecommunications and reflectors
+- Rome, Italy — satellite assembly, integration and testing; space systems and antennas
+
 How to run
 
 Option 1 — open locally (quickest):
@@ -29,6 +45,8 @@ python3 -m http.server 8000
 # then open http://localhost:8000 in your browser
 ```
 
-Notes
-- The map uses OpenStreetMap tiles via Leaflet (CDN). An internet connection is required to load tiles and the Leaflet library from the CDN.
+ Notes
+ - The map uses OpenStreetMap tiles via Leaflet (CDN). An internet connection is required to load tiles and the Leaflet library from the CDN.
+ - Marker icons are now pin-shaped (same shape for both companies) and colored per company.
+ - Overlapping markers are handled by MarkerCluster: when multiple markers share the same location they are spiderfied so each individual marker can be clicked.
 # Europe2
