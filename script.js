@@ -45,6 +45,66 @@ const places = [
   }
 ];
 
+// Add OHB sites (company: 'ohb') — green pins
+places.push(
+  {
+    id: 'bremen-ohb',
+    name: 'Bremen, Germany (OHB)',
+    coords: [53.0793, 8.8017],
+    type: 'ohb',
+    desc: 'OHB HQ and satellite/manufacturing facilities in Bremen.'
+  },
+  {
+    id: 'oberpfaffenhofen-ohb',
+    name: 'Oberpfaffenhofen, Germany (OHB)',
+    coords: [48.0841, 11.2835],
+    type: 'ohb',
+    desc: 'Space systems, mission operations, and test facilities near Munich.'
+  },
+  {
+    id: 'augsburg-ohb',
+    name: 'Augsburg, Germany (OHB)',
+    coords: [48.3715, 10.8985],
+    type: 'ohb',
+    desc: 'OHB engineering and subsystem development site.'
+  },
+  {
+    id: 'milan-ohb',
+    name: 'Milan, Italy (OHB)',
+    coords: [45.4642, 9.1900],
+    type: 'ohb',
+    desc: 'OHB presence for European subsystems and integration.'
+  },
+  {
+    id: 'stockholm-ohb',
+    name: 'Stockholm, Sweden (OHB)',
+    coords: [59.3293, 18.0686],
+    type: 'ohb',
+    desc: 'OHB activities in Sweden for payloads and instruments.'
+  },
+  {
+    id: 'antwerp-ohb',
+    name: 'Antwerp, Belgium (OHB)',
+    coords: [51.2194, 4.4025],
+    type: 'ohb',
+    desc: 'OHB presence supporting European manufacturing and logistics.'
+  },
+  {
+    id: 'betzdorf-ohb',
+    name: 'Betzdorf, Germany (OHB)',
+    coords: [50.6125, 7.8122],
+    type: 'ohb',
+    desc: 'Technical and support site for OHB activities.'
+  },
+  {
+    id: 'kourou-ohb',
+    name: 'Kourou, French Guiana (OHB)',
+    coords: [5.2360, -52.7758],
+    type: 'ohb',
+    desc: 'Guiana Space Centre (Arianespace/launch integration) — OHB-related activity.'
+  }
+);
+
 // Add Thales Alenia Space locations (marked with type: 'thales')
 places.push(
   {
@@ -165,6 +225,9 @@ const companyColor = {
   thales: '#e67e22'  // orange
 };
 
+// OHB (green)
+companyColor.ohb = '#2ecc40';
+
 // Create marker cluster group (handles spiderfy for overlapping markers)
 const clusterGroup = L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
@@ -192,9 +255,12 @@ const icons = {
   airbus: createPinIcon(companyColor.airbus),
   thales: createPinIcon(companyColor.thales)
 };
+// add OHB icon
+icons.ohb = createPinIcon(companyColor.ohb);
 
 places.forEach(place => {
-  const company = place.type === 'thales' ? 'thales' : 'airbus';
+  // company is determined by place.type when provided; default to 'airbus'
+  const company = place.type || 'airbus';
   const icon = icons[company] || createPinIcon('#666');
   const marker = L.marker(place.coords, { icon: icon });
   marker.bindPopup(`<strong>${place.name}</strong><br>${place.desc}`);
@@ -203,14 +269,16 @@ places.forEach(place => {
   clusterGroup.addLayer(marker);
 });
 
-// Fit map to show all markers
+// Fit map to show all markers (use clusterGroup bounds)
 if (places.length) {
-  map.fitBounds(group.getBounds().pad(0.2));
+  const bounds = clusterGroup.getBounds();
+  if (bounds.isValid()) map.fitBounds(bounds.pad(0.2));
 }
 
 // Build sidebar lists split by company (show only names; descriptions as hover titles)
 const airbusList = document.getElementById('airbus-places');
 const thalesList = document.getElementById('thales-places');
+const ohbList = document.getElementById('ohb-places');
 
 places.forEach(place => {
   const li = document.createElement('li');
@@ -241,6 +309,8 @@ places.forEach(place => {
 
   if (place.company === 'thales') {
     thalesList.appendChild(li);
+  } else if (place.company === 'ohb') {
+    if (ohbList) ohbList.appendChild(li);
   } else {
     airbusList.appendChild(li);
   }
@@ -249,5 +319,7 @@ places.forEach(place => {
 // Update counts in headings
 const airbusCountEl = document.getElementById('airbus-count');
 const thalesCountEl = document.getElementById('thales-count');
+const ohbCountEl = document.getElementById('ohb-count');
 if (airbusCountEl) airbusCountEl.textContent = `(${airbusList.children.length})`;
 if (thalesCountEl) thalesCountEl.textContent = `(${thalesList.children.length})`;
+if (ohbCountEl) ohbCountEl.textContent = `(${ohbList ? ohbList.children.length : 0})`;
