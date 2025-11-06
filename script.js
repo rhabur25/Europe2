@@ -293,6 +293,7 @@ places.forEach(place => {
   li.appendChild(name);
   // add a company-specific class for coloring in the sidebar
   if (place.company === 'thales') li.classList.add('company-thales');
+  else if (place.company === 'ohb') li.classList.add('company-ohb');
   else li.classList.add('company-airbus');
 
   li.addEventListener('click', () => {
