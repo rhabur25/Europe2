@@ -1,7 +1,5 @@
 # Airbus Sites — Interactive Map (Frontend only)
 
-Last updated: 2025-11-06
-
 This is a minimal front-end web app that shows several Airbus production and assembly sites pinned on an interactive map.
 
 Included files:
