@@ -32,6 +32,16 @@ Thales Alenia Space locations (shown in orange on the map):
 - L'Aquila, Italy — radar observation, telecommunications and reflectors
 - Rome, Italy — satellite assembly, integration and testing; space systems and antennas
 
+OHB locations (shown in green on the map):
+- Bremen, Germany — OHB HQ and satellite/manufacturing facilities
+- Oberpfaffenhofen, Germany — space systems, mission operations and test facilities
+- Augsburg, Germany — engineering and subsystem development
+- Milan, Italy — European subsystems and integration
+- Stockholm, Sweden — payloads and instruments
+- Antwerp, Belgium — manufacturing and logistics support
+- Betzdorf, Germany — technical and support site
+- Kourou, French Guiana — Guiana Space Centre (launch integration)
+
 How to run
 
 Option 1 — open locally (quickest):

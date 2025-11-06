@@ -57,6 +57,9 @@ html, body {
 
 .airbus-category h2 { color: #0074D9; }
 .thales-category h2 { color: #e67e22; }
+.ohb-category h2 { color: #2ecc40; }
+
+.company-ohb .place-name { color: #2ecc40; }
 
 #places li:hover { background: #f0f8ff; }
 
