@@ -105,6 +105,87 @@ places.push(
   }
 );
 
+// Add SENER locations (company: 'sener') — purple pins
+places.push(
+  {
+    id: 'getxo-sener',
+    name: 'Getxo, Spain (SENER)',
+    coords: [43.3470, -3.0333],
+    type: 'sener',
+    desc: 'Global headquarters; corporate leadership and origin of the company.'
+  },
+  {
+    id: 'tres-cantos-sener',
+    name: 'Tres Cantos, Madrid, Spain (SENER)',
+    coords: [40.5430, -3.6958],
+    type: 'sener',
+    desc: 'Aerospace & defense engineering campus; satellite systems and space hardware.'
+  },
+  {
+    id: 'arganda-sener',
+    name: 'Arganda del Rey, Spain (SENER)',
+    coords: [40.3457, -3.3607],
+    type: 'sener',
+    desc: 'Integration & testing center for space and defense components.'
+  },
+  {
+    id: 'cerdanyola-sener',
+    name: 'Cerdanyola del Vallès, Barcelona, Spain (SENER)',
+    coords: [41.4851, 2.1086],
+    type: 'sener',
+    desc: 'Engineering office; civil, energy, and aerospace projects.'
+  },
+  {
+    id: 'la-garriga-sener',
+    name: 'La Garriga, Spain (SENER)',
+    coords: [41.7117, 2.2878],
+    type: 'sener',
+    desc: 'Space communications facility; RF equipment and satellite electronics.'
+  },
+  {
+    id: 'erandio-sener',
+    name: 'Erandio, Spain (SENER)',
+    coords: [43.3176, -2.9738],
+    type: 'sener',
+    desc: 'Manufacturing plant; heavy industrial and energy components.'
+  },
+  {
+    id: 'mexicocity-sener',
+    name: 'Mexico City, Mexico (SENER)',
+    coords: [19.4326, -99.1332],
+    type: 'sener',
+    desc: 'Latin America HQ; energy and infrastructure projects across the region.'
+  },
+  {
+    id: 'losangeles-sener',
+    name: 'Los Angeles, USA (SENER)',
+    coords: [34.0522, -118.2437],
+    type: 'sener',
+    desc: 'U.S. HQ; rail, aerospace, and defense business development.'
+  },
+  {
+    id: 'warsaw-sener',
+    name: 'Warsaw, Poland (SENER)',
+    coords: [52.2297, 21.0122],
+    type: 'sener',
+    desc: 'Central Europe office; space technology center and satellite hardware production.'
+  },
+  {
+    id: 'abu-dhabi-sener',
+    name: 'Abu Dhabi, UAE (SENER)',
+    coords: [24.4539, 54.3773],
+    type: 'sener',
+    desc: 'Middle East office; energy and metro infrastructure projects.'
+  },
+  {
+    id: 'sydney-sener',
+    name: 'Sydney, Australia (SENER)',
+    coords: [-33.8688, 151.2093],
+    type: 'sener',
+    desc: 'Asia-Pacific HQ; transport and energy engineering for Oceania.'
+  }
+);
+
 // Add Beyond Gravity locations (company: 'beyond') — pink pins
 places.push(
   {
@@ -317,6 +398,8 @@ const companyColor = {
 companyColor.ohb = '#2ecc40';
 // Beyond Gravity (pink)
 companyColor.beyond = '#ff69b4';
+// SENER (purple)
+companyColor.sener = '#8e44ad';
 
 // Create marker cluster group (handles spiderfy for overlapping markers)
 const clusterGroup = L.markerClusterGroup({
@@ -349,6 +432,8 @@ const icons = {
 icons.ohb = createPinIcon(companyColor.ohb);
 // add Beyond Gravity icon
 icons.beyond = createPinIcon(companyColor.beyond);
+// add SENER icon
+icons.sener = createPinIcon(companyColor.sener);
 
 places.forEach(place => {
   // company is determined by place.type when provided; default to 'airbus'
@@ -372,6 +457,7 @@ const airbusList = document.getElementById('airbus-places');
 const thalesList = document.getElementById('thales-places');
 const ohbList = document.getElementById('ohb-places');
 const beyondList = document.getElementById('beyond-places');
+const senerList = document.getElementById('sener-places');
 
 places.forEach(place => {
   const li = document.createElement('li');
@@ -388,6 +474,7 @@ places.forEach(place => {
   if (place.company === 'thales') li.classList.add('company-thales');
   else if (place.company === 'ohb') li.classList.add('company-ohb');
   else if (place.company === 'beyond') li.classList.add('company-beyond');
+  else if (place.company === 'sener') li.classList.add('company-sener');
   else li.classList.add('company-airbus');
 
   li.addEventListener('click', () => {
@@ -408,6 +495,8 @@ places.forEach(place => {
     if (ohbList) ohbList.appendChild(li);
   } else if (place.company === 'beyond') {
     if (beyondList) beyondList.appendChild(li);
+  } else if (place.company === 'sener') {
+    if (senerList) senerList.appendChild(li);
   } else {
     airbusList.appendChild(li);
   }
@@ -418,7 +507,9 @@ const airbusCountEl = document.getElementById('airbus-count');
 const thalesCountEl = document.getElementById('thales-count');
 const ohbCountEl = document.getElementById('ohb-count');
 const beyondCountEl = document.getElementById('beyond-count');
+const senerCountEl = document.getElementById('sener-count');
 if (airbusCountEl) airbusCountEl.textContent = `(${airbusList.children.length})`;
 if (thalesCountEl) thalesCountEl.textContent = `(${thalesList.children.length})`;
 if (ohbCountEl) ohbCountEl.textContent = `(${ohbList ? ohbList.children.length : 0})`;
 if (beyondCountEl) beyondCountEl.textContent = `(${beyondList ? beyondList.children.length : 0})`;
+if (senerCountEl) senerCountEl.textContent = `(${senerList ? senerList.children.length : 0})`;

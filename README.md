@@ -56,6 +56,19 @@ Beyond Gravity locations (shown in pink on the map):
 - Tampere, Finland — engineering and production for interface and power electronics; ISO 8 cleanroom and radiation testing
 - Lisbon, Portugal — innovation and digital hub focusing on AI and digital infrastructure
 
+SENER locations (shown in purple on the map):
+- Getxo, Spain — Global headquarters; corporate leadership and origin of the company
+- Tres Cantos, Madrid, Spain — Aerospace & defense engineering campus; satellite systems and space hardware
+- Arganda del Rey, Spain — Integration & testing center for space and defense components
+- Cerdanyola del Vallès, Barcelona, Spain — Engineering office; civil, energy, and aerospace projects
+- La Garriga, Spain — Space communications facility; RF equipment and satellite electronics
+- Erandio, Spain — Manufacturing plant; heavy industrial and energy components
+- Mexico City, Mexico — Latin America HQ; energy and infrastructure projects across the region
+- Los Angeles, USA — U.S. HQ; rail, aerospace, and defense business development
+- Warsaw, Poland — Central Europe office; space technology center and satellite hardware production
+- Abu Dhabi, UAE — Middle East office; energy and metro infrastructure projects
+- Sydney, Australia — Asia-Pacific HQ; transport and energy engineering for Oceania
+
 How to run
 
 Option 1 — open locally (quickest):
