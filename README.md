@@ -42,6 +42,20 @@ OHB locations (shown in green on the map):
 - Betzdorf, Germany — technical and support site
 - Kourou, French Guiana — Guiana Space Centre (launch integration)
 
+Beyond Gravity locations (shown in pink on the map):
+- Bern, Switzerland — engineering and production of satellites and launchers
+- Emmen, Switzerland — production facility and competence center for launch vehicle structures
+- Nyon, Switzerland — sliprings and high-accuracy electro-mechanical systems
+- Zurich, Switzerland — global HQ with competence centers and production for mechatronics and satellite structures
+- Decatur, Alabama, USA — U.S. office HQ and production hall for launcher structures
+- Titusville, Florida, USA — semi-automated satellite panel production focused on constellations
+- Gothenburg, Sweden — competence center for high-reliability electronics and mechatronics
+- Linkoping, Sweden — engineering and production of dispensers and separation systems
+- Vienna, Austria — market leader for high-performance satellite navigation receivers
+- Berndorf, Austria — supplier of electric propulsion pointing mechanisms
+- Tampere, Finland — engineering and production for interface and power electronics; ISO 8 cleanroom and radiation testing
+- Lisbon, Portugal — innovation and digital hub focusing on AI and digital infrastructure
+
 How to run
 
 Option 1 — open locally (quickest):
