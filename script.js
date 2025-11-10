@@ -105,6 +105,94 @@ places.push(
   }
 );
 
+// Add Beyond Gravity locations (company: 'beyond') — pink pins
+places.push(
+  {
+    id: 'bern-beyond',
+    name: 'Bern, Switzerland (Beyond Gravity)',
+    coords: [46.9480, 7.4474],
+    type: 'beyond',
+    desc: 'Engineering and production of satellites and launcher structures.'
+  },
+  {
+    id: 'emmen-beyond',
+    name: 'Emmen, Switzerland (Beyond Gravity)',
+    coords: [47.1379, 8.2831],
+    type: 'beyond',
+    desc: 'Center of competence and production for lean, innovative manufacturing of structures for launch vehicles.'
+  },
+  {
+    id: 'nyon-beyond',
+    name: 'Nyon, Switzerland (Beyond Gravity)',
+    coords: [46.3833, 6.2333],
+    type: 'beyond',
+    desc: 'Engineering and manufacturing of customized sliprings and high-accuracy electro-mechanical systems.'
+  },
+  {
+    id: 'zurich-beyond',
+    name: 'Zurich, Switzerland (Beyond Gravity)',
+    coords: [47.3769, 8.5417],
+    type: 'beyond',
+    desc: 'Global HQ with competence centers and production for mechatronics and satellite structures.'
+  },
+  {
+    id: 'decatur-beyond',
+    name: 'Decatur, Alabama, USA (Beyond Gravity)',
+    coords: [34.6059, -87.0164],
+    type: 'beyond',
+    desc: 'U.S. office HQ and modern production hall for launcher structures.'
+  },
+  {
+    id: 'titusville-beyond',
+    name: 'Titusville, Florida, USA (Beyond Gravity)',
+    coords: [28.6122, -80.8076],
+    type: 'beyond',
+    desc: 'Semi-automated satellite panel production facility focused on the constellation market.'
+  },
+  {
+    id: 'gothenburg-beyond',
+    name: 'Gothenburg, Sweden (Beyond Gravity)',
+    coords: [57.7089, 11.9746],
+    type: 'beyond',
+    desc: 'Competence center for high-reliability electronic products and mechatronics.'
+  },
+  {
+    id: 'linkoping-beyond',
+    name: 'Linkoping, Sweden (Beyond Gravity)',
+    coords: [58.4108, 15.6214],
+    type: 'beyond',
+    desc: 'Engineering and production of dispensers and separation systems for major launch vehicles.'
+  },
+  {
+    id: 'vienna-beyond',
+    name: 'Vienna, Austria (Beyond Gravity)',
+    coords: [48.2082, 16.3738],
+    type: 'beyond',
+    desc: 'Market leader for high-performance satellite navigation receivers.'
+  },
+  {
+    id: 'berndorf-beyond',
+    name: 'Berndorf, Austria (Beyond Gravity)',
+    coords: [47.9276, 16.1379],
+    type: 'beyond',
+    desc: 'Supplier of electric propulsion pointing mechanisms.'
+  },
+  {
+    id: 'tampere-beyond',
+    name: 'Tampere, Finland (Beyond Gravity)',
+    coords: [61.4982, 23.7610],
+    type: 'beyond',
+    desc: 'Engineering and production competence for interface and power electronics; ISO 8 cleanroom and radiation testing services.'
+  },
+  {
+    id: 'lisbon-beyond',
+    name: 'Lisbon, Portugal (Beyond Gravity)',
+    coords: [38.7223, -9.1393],
+    type: 'beyond',
+    desc: 'Innovation and digital hub focusing on AI and digital infrastructure.'
+  }
+);
+
 // Add Thales Alenia Space locations (marked with type: 'thales')
 places.push(
   {
@@ -227,6 +315,8 @@ const companyColor = {
 
 // OHB (green)
 companyColor.ohb = '#2ecc40';
+// Beyond Gravity (pink)
+companyColor.beyond = '#ff69b4';
 
 // Create marker cluster group (handles spiderfy for overlapping markers)
 const clusterGroup = L.markerClusterGroup({
@@ -257,6 +347,8 @@ const icons = {
 };
 // add OHB icon
 icons.ohb = createPinIcon(companyColor.ohb);
+// add Beyond Gravity icon
+icons.beyond = createPinIcon(companyColor.beyond);
 
 places.forEach(place => {
   // company is determined by place.type when provided; default to 'airbus'
@@ -279,6 +371,7 @@ if (places.length) {
 const airbusList = document.getElementById('airbus-places');
 const thalesList = document.getElementById('thales-places');
 const ohbList = document.getElementById('ohb-places');
+const beyondList = document.getElementById('beyond-places');
 
 places.forEach(place => {
   const li = document.createElement('li');
@@ -294,6 +387,7 @@ places.forEach(place => {
   // add a company-specific class for coloring in the sidebar
   if (place.company === 'thales') li.classList.add('company-thales');
   else if (place.company === 'ohb') li.classList.add('company-ohb');
+  else if (place.company === 'beyond') li.classList.add('company-beyond');
   else li.classList.add('company-airbus');
 
   li.addEventListener('click', () => {
@@ -312,6 +406,8 @@ places.forEach(place => {
     thalesList.appendChild(li);
   } else if (place.company === 'ohb') {
     if (ohbList) ohbList.appendChild(li);
+  } else if (place.company === 'beyond') {
+    if (beyondList) beyondList.appendChild(li);
   } else {
     airbusList.appendChild(li);
   }
@@ -321,6 +417,8 @@ places.forEach(place => {
 const airbusCountEl = document.getElementById('airbus-count');
 const thalesCountEl = document.getElementById('thales-count');
 const ohbCountEl = document.getElementById('ohb-count');
+const beyondCountEl = document.getElementById('beyond-count');
 if (airbusCountEl) airbusCountEl.textContent = `(${airbusList.children.length})`;
 if (thalesCountEl) thalesCountEl.textContent = `(${thalesList.children.length})`;
 if (ohbCountEl) ohbCountEl.textContent = `(${ohbList ? ohbList.children.length : 0})`;
+if (beyondCountEl) beyondCountEl.textContent = `(${beyondList ? beyondList.children.length : 0})`;
