@@ -64,6 +64,9 @@ html, body {
 .beyond-category h2 { color: #ff69b4; }
 .company-beyond .place-name { color: #ff69b4; }
 
+.sener-category h2 { color: #8e44ad; }
+.company-sener .place-name { color: #8e44ad; }
+
 #places li:hover { background: #f0f8ff; }
 
 #places li .place-name { font-weight: 600; }
