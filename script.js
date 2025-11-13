@@ -413,6 +413,14 @@ places.push(
     type: 'avio',
     desc: 'Turboprop engines.'
   }
+  ,
+  {
+    id: 'arlington-avio',
+    name: 'Arlington, Virginia, USA (Avio)',
+    coords: [38.8816, -77.0910],
+    type: 'avio',
+    desc: 'USA manufacturing headquarters.'
+  }
 );
 
 // Add Thales Alenia Space locations (marked with type: 'thales')

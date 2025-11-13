@@ -78,6 +78,8 @@ Avio locations (shown in red on the map):
 - Brindisi, Italy — Test, Case & Frames, Services
 - Bielsko-Biała, Poland — Turbomachinery
 - Prague, Czech Republic — Turboprop engines
+- Prague, Czech Republic — Turboprop engines
+- Arlington, Virginia, USA — USA manufacturing headquarters
 
 How to run
 
