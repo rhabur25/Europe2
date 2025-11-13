@@ -274,6 +274,147 @@ places.push(
   }
 );
 
+// Add SENER locations (company: 'sener') — purple pins
+places.push(
+  {
+    id: 'getxo-sener',
+    name: 'Getxo, Spain (SENER)',
+    coords: [43.3470, -3.0333],
+    type: 'sener',
+    desc: 'Global headquarters; corporate leadership and origin of the company.'
+  },
+  {
+    id: 'tres-cantos-sener',
+    name: 'Tres Cantos, Madrid, Spain (SENER)',
+    coords: [40.5430, -3.6958],
+    type: 'sener',
+    desc: 'Aerospace & defense engineering campus; satellite systems and space hardware.'
+  },
+  {
+    id: 'arganda-sener',
+    name: 'Arganda del Rey, Spain (SENER)',
+    coords: [40.3457, -3.3607],
+    type: 'sener',
+    desc: 'Integration & testing center for space and defense components.'
+  },
+  {
+    id: 'cerdanyola-sener',
+    name: 'Cerdanyola del Vallès, Barcelona, Spain (SENER)',
+    coords: [41.4851, 2.1086],
+    type: 'sener',
+    desc: 'Engineering office; civil, energy, and aerospace projects.'
+  },
+  {
+    id: 'la-garriga-sener',
+    name: 'La Garriga, Spain (SENER)',
+    coords: [41.7117, 2.2878],
+    type: 'sener',
+    desc: 'Space communications facility; RF equipment and satellite electronics.'
+  },
+  {
+    id: 'erandio-sener',
+    name: 'Erandio, Spain (SENER)',
+    coords: [43.3176, -2.9738],
+    type: 'sener',
+    desc: 'Manufacturing plant; heavy industrial and energy components.'
+  },
+  {
+    id: 'mexicocity-sener',
+    name: 'Mexico City, Mexico (SENER)',
+    coords: [19.4326, -99.1332],
+    type: 'sener',
+    desc: 'Latin America HQ; energy and infrastructure projects across the region.'
+  },
+  {
+    id: 'losangeles-sener',
+    name: 'Los Angeles, USA (SENER)',
+    coords: [34.0522, -118.2437],
+    type: 'sener',
+    desc: 'U.S. HQ; rail, aerospace, and defense business development.'
+  },
+  {
+    id: 'warsaw-sener',
+    name: 'Warsaw, Poland (SENER)',
+    coords: [52.2297, 21.0122],
+    type: 'sener',
+    desc: 'Central Europe office; space technology center and satellite hardware production.'
+  },
+  {
+    id: 'abu-dhabi-sener',
+    name: 'Abu Dhabi, UAE (SENER)',
+    coords: [24.4539, 54.3773],
+    type: 'sener',
+    desc: 'Middle East office; energy and metro infrastructure projects.'
+  },
+  {
+    id: 'sydney-sener',
+    name: 'Sydney, Australia (SENER)',
+    coords: [-33.8688, 151.2093],
+    type: 'sener',
+    desc: 'Asia-Pacific HQ; transport and energy engineering for Oceania.'
+  }
+);
+
+// Add Avio locations (company: 'avio') — red pins
+places.push(
+  {
+    id: 'rivalta-avio',
+    name: 'Rivalta di Torino, Italy (Avio)',
+    coords: [45.1668, 7.5500],
+    type: 'avio',
+    desc: 'Mechanical Transmissions, Headquarters.'
+  },
+  {
+    id: 'torino-sangone-avio',
+    name: 'Torino - Sangone, Italy (Avio)',
+    coords: [45.1333, 7.5667],
+    type: 'avio',
+    desc: 'Mechanical Transmissions, Test Plant.'
+  },
+  {
+    id: 'borgaretto-avio',
+    name: 'Borgaretto (Torino), Italy (Avio)',
+    coords: [45.2000, 7.5500],
+    type: 'avio',
+    desc: 'Mechanical Transmissions, Foundry.'
+  },
+  {
+    id: 'cameri-avio',
+    name: 'Cameri (Novara), Italy (Avio)',
+    coords: [45.6833, 8.6333],
+    type: 'avio',
+    desc: 'Additive Manufacturing.'
+  },
+  {
+    id: 'pomigliano-avio',
+    name: 'Pomigliano d\'Arco (Napoli), Italy (Avio)',
+    coords: [40.8842, 14.3322],
+    type: 'avio',
+    desc: 'Services, Turbomachinery.'
+  },
+  {
+    id: 'brindisi-avio',
+    name: 'Brindisi, Italy (Avio)',
+    coords: [40.6350, 17.9435],
+    type: 'avio',
+    desc: 'Test, Case & Frames, Services.'
+  },
+  {
+    id: 'bielsko-avio',
+    name: 'Bielsko-Biała, Poland (Avio)',
+    coords: [49.8165, 19.0516],
+    type: 'avio',
+    desc: 'Turbomachinery.'
+  },
+  {
+    id: 'prague-avio',
+    name: 'Prague, Czech Republic (Avio)',
+    coords: [50.0755, 14.4378],
+    type: 'avio',
+    desc: 'Turboprop engines.'
+  }
+);
+
 // Add Thales Alenia Space locations (marked with type: 'thales')
 places.push(
   {
@@ -400,6 +541,8 @@ companyColor.ohb = '#2ecc40';
 companyColor.beyond = '#ff69b4';
 // SENER (purple)
 companyColor.sener = '#8e44ad';
+// Avio (red)
+companyColor.avio = '#e74c3c';
 
 // Create marker cluster group (handles spiderfy for overlapping markers)
 const clusterGroup = L.markerClusterGroup({
@@ -434,6 +577,8 @@ icons.ohb = createPinIcon(companyColor.ohb);
 icons.beyond = createPinIcon(companyColor.beyond);
 // add SENER icon
 icons.sener = createPinIcon(companyColor.sener);
+// add Avio icon
+icons.avio = createPinIcon(companyColor.avio);
 
 places.forEach(place => {
   // company is determined by place.type when provided; default to 'airbus'
@@ -458,6 +603,7 @@ const thalesList = document.getElementById('thales-places');
 const ohbList = document.getElementById('ohb-places');
 const beyondList = document.getElementById('beyond-places');
 const senerList = document.getElementById('sener-places');
+const avioList = document.getElementById('avio-places');
 
 places.forEach(place => {
   const li = document.createElement('li');
@@ -475,6 +621,7 @@ places.forEach(place => {
   else if (place.company === 'ohb') li.classList.add('company-ohb');
   else if (place.company === 'beyond') li.classList.add('company-beyond');
   else if (place.company === 'sener') li.classList.add('company-sener');
+  else if (place.company === 'avio') li.classList.add('company-avio');
   else li.classList.add('company-airbus');
 
   li.addEventListener('click', () => {
@@ -497,6 +644,8 @@ places.forEach(place => {
     if (beyondList) beyondList.appendChild(li);
   } else if (place.company === 'sener') {
     if (senerList) senerList.appendChild(li);
+  } else if (place.company === 'avio') {
+    if (avioList) avioList.appendChild(li);
   } else {
     airbusList.appendChild(li);
   }
@@ -508,8 +657,10 @@ const thalesCountEl = document.getElementById('thales-count');
 const ohbCountEl = document.getElementById('ohb-count');
 const beyondCountEl = document.getElementById('beyond-count');
 const senerCountEl = document.getElementById('sener-count');
+const avioCountEl = document.getElementById('avio-count');
 if (airbusCountEl) airbusCountEl.textContent = `(${airbusList.children.length})`;
 if (thalesCountEl) thalesCountEl.textContent = `(${thalesList.children.length})`;
 if (ohbCountEl) ohbCountEl.textContent = `(${ohbList ? ohbList.children.length : 0})`;
 if (beyondCountEl) beyondCountEl.textContent = `(${beyondList ? beyondList.children.length : 0})`;
 if (senerCountEl) senerCountEl.textContent = `(${senerList ? senerList.children.length : 0})`;
+if (avioCountEl) avioCountEl.textContent = `(${avioList ? avioList.children.length : 0})`;
