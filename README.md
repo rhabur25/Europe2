@@ -69,6 +69,16 @@ SENER locations (shown in purple on the map):
 - Abu Dhabi, UAE — Middle East office; energy and metro infrastructure projects
 - Sydney, Australia — Asia-Pacific HQ; transport and energy engineering for Oceania
 
+Avio locations (shown in red on the map):
+- Rivalta di Torino, Italy — Mechanical Transmissions, Headquarters
+- Torino - Sangone, Italy — Mechanical Transmissions, Test Plant
+- Borgaretto (Torino), Italy — Mechanical Transmissions, Foundry
+- Cameri (Novara), Italy — Additive Manufacturing
+- Pomigliano d'Arco (Napoli), Italy — Services, Turbomachinery
+- Brindisi, Italy — Test, Case & Frames, Services
+- Bielsko-Biała, Poland — Turbomachinery
+- Prague, Czech Republic — Turboprop engines
+
 How to run
 
 Option 1 — open locally (quickest):
