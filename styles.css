@@ -70,6 +70,9 @@ html, body {
 .avio-category h2 { color: #e74c3c; }
 .company-avio .place-name { color: #e74c3c; }
 
+.safran-category h2 { color: #20b2aa; }
+.company-safran .place-name { color: #20b2aa; }
+
 #places li:hover { background: #f0f8ff; }
 
 #places li .place-name { font-weight: 600; }
