@@ -78,8 +78,25 @@ Avio locations (shown in red on the map):
 - Brindisi, Italy — Test, Case & Frames, Services
 - Bielsko-Biała, Poland — Turbomachinery
 - Prague, Czech Republic — Turboprop engines
-- Prague, Czech Republic — Turboprop engines
 - Arlington, Virginia, USA — USA manufacturing headquarters
+
+Safran locations (shown in teal on the map):
+- Paris, France — Safran headquarters; aerospace propulsion, equipment, and defense
+- Bordes, France — Safran Helicopter Engines HQ and major production site
+- Villaroche, France — Safran Aircraft Engines; large civil and military engine assembly
+- Issoudun, France — Safran Seats; aircraft seating manufacturing
+- Le Creusot, France — Safran Landing Systems; wheels and brakes
+- Charleroi, Belgium — Safran Aero Boosters; engine components
+- Hamburg, Germany — Safran Cabin; aircraft interiors
+- Gloucester, UK — Safran Landing Systems; wheels and brakes
+- Burnley, UK — Safran Nacelles; engine nacelle manufacturing
+- Casablanca, Morocco — Safran Aircraft Engines and Safran Electrical & Power; production and MRO
+- Querétaro, Mexico — Safran Aircraft Engines and Safran Landing Systems; manufacturing and MRO
+- Singapore — Safran Electronics & Defense; Asia-Pacific regional office
+- Suzhou, China — Safran Electrical & Power; wiring and electrical systems
+- Hyderabad, India — Safran Aircraft Engines and Safran Electrical & Power; engineering and production
+- Dallas, Texas, USA — Safran USA HQ; aerospace and defense business development
+- Redmond, Washington, USA — Safran Cabin; aircraft interiors
 
 How to run
 

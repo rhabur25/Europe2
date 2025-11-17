@@ -445,6 +445,122 @@ places.push(
   }
 );
 
+// Add Safran locations (company: 'safran') — teal pins
+places.push(
+  {
+    id: 'paris-safran',
+    name: 'Paris, France (Safran)',
+    coords: [48.8566, 2.3522],
+    type: 'safran',
+    desc: 'Safran headquarters; aerospace propulsion, equipment, and defense.'
+  },
+  {
+    id: 'bordes-safran',
+    name: 'Bordes, France (Safran)',
+    coords: [43.1856, -0.3764],
+    type: 'safran',
+    desc: 'Safran Helicopter Engines HQ and major production site.'
+  },
+  {
+    id: 'villaroche-safran',
+    name: 'Villaroche, France (Safran)',
+    coords: [48.6017, 2.6706],
+    type: 'safran',
+    desc: 'Safran Aircraft Engines; large civil and military engine assembly.'
+  },
+  {
+    id: 'issoudun-safran',
+    name: 'Issoudun, France (Safran)',
+    coords: [46.9500, 2.0000],
+    type: 'safran',
+    desc: 'Safran Seats; aircraft seating manufacturing.'
+  },
+  {
+    id: 'le-creusot-safran',
+    name: 'Le Creusot, France (Safran)',
+    coords: [46.8101, 4.4861],
+    type: 'safran',
+    desc: 'Safran Landing Systems; wheels and brakes.'
+  },
+  {
+    id: 'charleroi-safran',
+    name: 'Charleroi, Belgium (Safran)',
+    coords: [50.4114, 4.4448],
+    type: 'safran',
+    desc: 'Safran Aero Boosters; engine components.'
+  },
+  {
+    id: 'hamburg-safran',
+    name: 'Hamburg, Germany (Safran)',
+    coords: [53.5511, 9.9937],
+    type: 'safran',
+    desc: 'Safran Cabin; aircraft interiors.'
+  },
+  {
+    id: 'gloucester-safran',
+    name: 'Gloucester, UK (Safran)',
+    coords: [51.8642, -2.2382],
+    type: 'safran',
+    desc: 'Safran Landing Systems; wheels and brakes.'
+  },
+  {
+    id: 'burnley-safran',
+    name: 'Burnley, UK (Safran)',
+    coords: [53.7893, -2.2400],
+    type: 'safran',
+    desc: 'Safran Nacelles; engine nacelle manufacturing.'
+  },
+  {
+    id: 'casablanca-safran',
+    name: 'Casablanca, Morocco (Safran)',
+    coords: [33.5731, -7.5898],
+    type: 'safran',
+    desc: 'Safran Aircraft Engines and Safran Electrical & Power; production and MRO.'
+  },
+  {
+    id: 'queretaro-safran',
+    name: 'Querétaro, Mexico (Safran)',
+    coords: [20.5888, -100.3899],
+    type: 'safran',
+    desc: 'Safran Aircraft Engines and Safran Landing Systems; manufacturing and MRO.'
+  },
+  {
+    id: 'singapore-safran',
+    name: 'Singapore (Safran)',
+    coords: [1.3521, 103.8198],
+    type: 'safran',
+    desc: 'Safran Electronics & Defense; Asia-Pacific regional office.'
+  },
+  {
+    id: 'suzhou-safran',
+    name: 'Suzhou, China (Safran)',
+    coords: [31.2989, 120.5853],
+    type: 'safran',
+    desc: 'Safran Electrical & Power; wiring and electrical systems.'
+  },
+  {
+    id: 'hyderabad-safran',
+    name: 'Hyderabad, India (Safran)',
+    coords: [17.3850, 78.4867],
+    type: 'safran',
+    desc: 'Safran Aircraft Engines and Safran Electrical & Power; engineering and production.'
+  },
+  {
+    id: 'dallas-safran',
+    name: 'Dallas, Texas, USA (Safran)',
+    coords: [32.7767, -96.7970],
+    type: 'safran',
+    desc: 'Safran USA HQ; aerospace and defense business development.'
+  },
+  {
+    id: 'redmond-safran',
+    name: 'Redmond, Washington, USA (Safran)',
+    coords: [47.673988, -122.121513],
+    type: 'safran',
+    desc: 'Safran Cabin; aircraft interiors.'
+  }
+);
+
 // Create the map centered roughly on western/central Europe
 const map = L.map('map', { zoomControl: true }).setView([50.0, 3.0], 5);
 
@@ -471,6 +587,8 @@ companyColor.beyond = '#ff69b4';
 companyColor.sener = '#8e44ad';
 // Avio (red)
 companyColor.avio = '#e74c3c';
+// Safran (teal)
+companyColor.safran = '#20b2aa';
 
 // Create marker cluster group (handles spiderfy for overlapping markers)
 const clusterGroup = L.markerClusterGroup({
@@ -507,6 +625,8 @@ icons.beyond = createPinIcon(companyColor.beyond);
 icons.sener = createPinIcon(companyColor.sener);
 // add Avio icon
 icons.avio = createPinIcon(companyColor.avio);
+// add Safran icon
+icons.safran = createPinIcon(companyColor.safran);
 
 places.forEach(place => {
   // company is determined by place.type when provided; default to 'airbus'
@@ -532,6 +652,7 @@ const ohbList = document.getElementById('ohb-places');
 const beyondList = document.getElementById('beyond-places');
 const senerList = document.getElementById('sener-places');
 const avioList = document.getElementById('avio-places');
+const safranList = document.getElementById('safran-places');
 
 places.forEach(place => {
   const li = document.createElement('li');
@@ -550,6 +671,7 @@ places.forEach(place => {
   else if (place.company === 'beyond') li.classList.add('company-beyond');
   else if (place.company === 'sener') li.classList.add('company-sener');
   else if (place.company === 'avio') li.classList.add('company-avio');
+  else if (place.company === 'safran') li.classList.add('company-safran');
   else li.classList.add('company-airbus');
 
   li.addEventListener('click', () => {
@@ -574,6 +696,8 @@ places.forEach(place => {
     if (senerList) senerList.appendChild(li);
   } else if (place.company === 'avio') {
     if (avioList) avioList.appendChild(li);
+  } else if (place.company === 'safran') {
+    if (safranList) safranList.appendChild(li);
   } else {
     airbusList.appendChild(li);
   }
@@ -586,9 +710,11 @@ const ohbCountEl = document.getElementById('ohb-count');
 const beyondCountEl = document.getElementById('beyond-count');
 const senerCountEl = document.getElementById('sener-count');
 const avioCountEl = document.getElementById('avio-count');
+const safranCountEl = document.getElementById('safran-count');
 if (airbusCountEl) airbusCountEl.textContent = `(${airbusList.children.length})`;
 if (thalesCountEl) thalesCountEl.textContent = `(${thalesList.children.length})`;
 if (ohbCountEl) ohbCountEl.textContent = `(${ohbList ? ohbList.children.length : 0})`;
 if (beyondCountEl) beyondCountEl.textContent = `(${beyondList ? beyondList.children.length : 0})`;
 if (senerCountEl) senerCountEl.textContent = `(${senerList ? senerList.children.length : 0})`;
 if (avioCountEl) avioCountEl.textContent = `(${avioList ? avioList.children.length : 0})`;
+if (safranCountEl) safranCountEl.textContent = `(${safranList ? safranList.children.length : 0})`;
