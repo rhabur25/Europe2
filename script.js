@@ -1,47 +1,112 @@
 // script.js — initialize Leaflet map and add markers + sidebar interactions
 const places = [
   {
-    id: 'toulouse',
+    id: 'brussels-airbus',
+    name: 'Brussels, Belgium',
+    coords: [50.8503, 4.3517],
+    desc: 'EU public affairs'
+  },
+  {
+    id: 'diegem-airbus',
+    name: 'Diegem, Belgium',
+    coords: [50.9131, 4.4436],
+    desc: 'Airbus Defense and Space operations'
+  },
+  {
+    id: 'nivelles-airbus',
+    name: 'Nivelles, Belgium',
+    coords: [50.6004, 4.3281],
+    desc: 'Airbus Defense and Space majority share'
+  },
+  {
+    id: 'helsinki-airbus',
+    name: 'Helsinki, Finland',
+    coords: [60.1699, 24.9384],
+    desc: 'Public Safety & Security and Intelligence'
+  },
+  {
+    id: 'jyvaskyla-airbus',
+    name: 'Jyväskylä, Finland',
+    coords: [62.2426, 25.7473],
+    desc: 'Public Safety & Security and Intelligence'
+  },
+  {
+    id: 'toulouse-airbus',
     name: 'Toulouse, France',
     coords: [43.6045, 1.4440],
-    desc: 'Home to Airbus headquarters and several major aircraft components, including the A320 family and A350.'
+    desc: 'Headquarters'
   },
   {
-    id: 'hamburg',
-    name: 'Hamburg, Germany',
-    coords: [53.5511, 9.9937],
-    desc: 'Focuses on the assembly and finishing of aircraft, particularly the A320 family and A330.'
+    id: 'marignane-airbus',
+    name: 'Marignane, France',
+    coords: [43.4167, 5.2140],
+    desc: 'Manufacturing center'
   },
   {
-    id: 'seville',
-    name: 'Seville, Spain',
-    coords: [37.3891, -5.9845],
-    desc: 'Final assembly of the A400M military transport aircraft.'
+    id: 'bremen-airbus',
+    name: 'Bremen, Germany',
+    coords: [53.0793, 8.8017],
+    desc: 'A400M fuselage assembly and production of the European Service Module (ESM) - critical for NASA\'s spacecraft for the next moon missions'
   },
   {
-    id: 'broughton',
-    name: 'Broughton, Wales',
-    coords: [53.1717, -3.0223],
-    desc: 'Production of wings for the A320 family and A350.'
+    id: 'friedrichshafen-airbus',
+    name: 'Friedrichshafen, Germany',
+    coords: [47.6514, 9.4797],
+    desc: 'Focuses on satellite development, earth observation, and space exploration.'
   },
   {
-    id: 'filton',
-    name: 'Filton, England',
-    coords: [51.5194, -2.5512],
-    desc: 'Production of wings for the A320 family and A350.'
-  }
-  ,
-  {
-    id: 'mobile',
-    name: 'Mobile, Alabama, USA',
-    coords: [30.6954, -88.0399],
-    desc: 'Assembles A320 family aircraft for the North American market.'
+    id: 'ottobrunn-airbus',
+    name: 'Ottobrunn, Germany',
+    coords: [48.0672, 11.6581],
+    desc: 'Produces optical instruments, solar panels for satellites and rocket engines.'
   },
   {
-    id: 'tianjin',
-    name: 'Tianjin, China',
-    coords: [39.3434, 117.3616],
-    desc: 'Final assembly line for the A320 family to cater to Asian demand.'
+    id: 'taufkirchen-airbus',
+    name: 'Taufkirchen, Germany',
+    coords: [48.0481, 11.6526],
+    desc: 'Produces optical instruments, solar panels for satellites and rocket engines.'
+  },
+  {
+    id: 'rome-airbus',
+    name: 'Rome, Italy',
+    coords: [41.9028, 12.4964],
+    desc: 'Airbus Italia location'
+  },
+  {
+    id: 'warsaw-airbus',
+    name: 'Warsaw, Poland',
+    coords: [52.2297, 21.0122],
+    desc: 'Manufacturing'
+  },
+  {
+    id: 'lodz-airbus',
+    name: 'Łódź, Poland',
+    coords: [51.7592, 19.4560],
+    desc: 'Manufacturing'
+  },
+  {
+    id: 'gdansk-airbus',
+    name: 'Gdańsk, Poland',
+    coords: [54.3520, 18.6466],
+    desc: 'Manufacturing'
+  },
+  {
+    id: 'getafe-airbus',
+    name: 'Getafe, Spain',
+    coords: [40.3086, -3.7327],
+    desc: 'The nation\'s hub for satellite and launcher production.'
+  },
+  {
+    id: 'stevenage-airbus',
+    name: 'Stevenage, UK',
+    coords: [51.9038, -0.1966],
+    desc: 'Important manufacturing location'
+  },
+  {
+    id: 'portsmouth-airbus',
+    name: 'Portsmouth, UK',
+    coords: [50.8198, -1.0880],
+    desc: 'A world leader in radar design and manufacture having built the instrument for the NovaSAR-1 satellite'
   }
 ];
 
