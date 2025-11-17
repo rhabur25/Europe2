@@ -261,7 +261,7 @@ places.push(
     desc: 'Engineering and production of satellites and launcher structures.'
   },
   {
-    id: 'emmen-beyond',
+    id:
     name: 'Emmen, Switzerland (Beyond Gravity)',
     coords: [47.1379, 8.2831],
     type: 'beyond',
@@ -783,3 +783,69 @@ if (beyondCountEl) beyondCountEl.textContent = `(${beyondList ? beyondList.child
 if (senerCountEl) senerCountEl.textContent = `(${senerList ? senerList.children.length : 0})`;
 if (avioCountEl) avioCountEl.textContent = `(${avioList ? avioList.children.length : 0})`;
 if (safranCountEl) safranCountEl.textContent = `(${safranList ? safranList.children.length : 0})`;
+
+// Helper: get country from place name
+function getCountry(place) {
+  // Try to extract country from name (last word or after comma)
+  const name = place.name;
+  let main = name.split('(')[0].trim();
+  if (main.includes(',')) {
+    return main.split(',').pop().trim();
+  }
+  const parts = main.split(' ');
+  return parts[parts.length - 1];
+}
+
+// Build country set
+const countrySet = new Set();
+places.forEach(place => {
+  countrySet.add(getCountry(place));
+});
+
+// Populate dropdown
+const countrySelect = document.getElementById('country-select');
+if (countrySelect) {
+  Array.from(countrySet).sort().forEach(country => {
+    const opt = document.createElement('option');
+    opt.value = country;
+    opt.textContent = country;
+    countrySelect.appendChild(opt);
+  });
+}
+
+function filterByCountry(selectedCountry) {
+  // Show/hide sidebar entries and map markers
+  places.forEach(place => {
+    const country = getCountry(place);
+    const show = (selectedCountry === 'all' || country === selectedCountry);
+    // Sidebar
+    const li = document.querySelector(`li[data-id="${place.id}"]`);
+    if (li) li.style.display = show ? '' : 'none';
+    // Map marker
+    const marker = markers[place.id];
+    if (marker) {
+      if (show) clusterGroup.addLayer(marker);
+      else clusterGroup.removeLayer(marker);
+    }
+  });
+  // Update counts
+  function updateCount(list, countEl) {
+    if (list && countEl) {
+      const visible = Array.from(list.children).filter(li => li.style.display !== 'none').length;
+      countEl.textContent = `(${visible})`;
+    }
+  }
+  updateCount(airbusList, airbusCountEl);
+  updateCount(thalesList, thalesCountEl);
+  updateCount(ohbList, ohbCountEl);
+  updateCount(beyondList, beyondCountEl);
+  updateCount(senerList, senerCountEl);
+  updateCount(avioList, avioCountEl);
+  updateCount(safranList, safranCountEl);
+}
+
+if (countrySelect) {
+  countrySelect.addEventListener('change', function() {
+    filterByCountry(this.value);
+  });
+}
