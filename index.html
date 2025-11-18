@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Airbus Sites — Interactive Map</title>
+    <title>Space Manufacturing Companies</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
     <link rel="stylesheet" href="styles.css" />
   <!-- MarkerCluster (handles overlapping markers with spiderfy) -->
@@ -13,13 +13,14 @@
   <body>
     <div id="app">
       <aside id="sidebar">
-        <h1>Airbus</h1>
+        <h1>Space Manufacturing Companies</h1>
         <p>Click a place to pan and open its details.</p>
 
-        <label for="country-select" style="display:block;margin:10px 0 8px 0;font-weight:600;">Filter by country:</label>
-        <select id="country-select" style="width:100%;padding:6px 8px;border-radius:5px;border:1px solid #ccc;">
-          <option value="all">All countries</option>
+        <label for="country-zoom" style="display:block;margin:10px 0 8px 0;font-weight:600;">Zoom to country:</label>
+        <select id="country-zoom" style="width:100%;padding:6px 8px;border-radius:5px;border:1px solid #ccc;">
+          <option value="">Select a country</option>
         </select>
+        <button id="reset-zoom" style="width:100%;margin:6px 0 12px 0;padding:6px 8px;border-radius:5px;border:1px solid #ccc;background:#f7f7f9;cursor:pointer;font-weight:600;">Reset Zoom</button>
 
         <div class="category airbus-category">
           <h2>Airbus Sites <span id="airbus-count" class="count"></span></h2>
@@ -49,6 +50,42 @@
         <div class="category safran-category">
           <h2>Safran <span id="safran-count" class="count"></span></h2>
           <ul id="safran-places" class="places-list"></ul>
+        </div>
+        <div class="category arianegroup-category">
+          <h2>ArianeGroup <span id="arianegroup-count" class="count"></span></h2>
+          <ul id="arianegroup-places" class="places-list"></ul>
+        </div>
+        <div class="category telespazio-category">
+          <h2 style="color:#001f3f">Telespazio <span id="telespazio-count" class="count"></span></h2>
+          <ul id="telespazio-places" class="places-list"></ul>
+        </div>
+        <div class="category argentina-category">
+          <h2>Argentina <span id="argentina-count" class="count"></span></h2>
+          <ul id="argentina-places" class="places-list"></ul>
+        </div>
+        <div class="category chile-category">
+          <h2>Chile <span id="chile-count" class="count"></span></h2>
+          <ul id="chile-places" class="places-list"></ul>
+        </div>
+        <div class="category brazil-category">
+          <h2>Brazil <span id="brazil-count" class="count"></span></h2>
+          <ul id="brazil-places" class="places-list"></ul>
+        </div>
+        <div class="category colombia-category">
+          <h2>Colombia <span id="colombia-count" class="count"></span></h2>
+          <ul id="colombia-places" class="places-list"></ul>
+        </div>
+        <div class="category costarica-category">
+          <h2>Costa Rica <span id="costarica-count" class="count"></span></h2>
+          <ul id="costarica-places" class="places-list"></ul>
+        </div>
+        <div class="category peru-category">
+          <h2>Peru <span id="peru-count" class="count"></span></h2>
+          <ul id="peru-places" class="places-list"></ul>
+        </div>
+        <div class="category romania-category">
+          <h2>Romania <span id="romania-count" class="count"></span></h2>
+          <ul id="romania-places" class="places-list"></ul>
         </div>
         <footer>
           <small>Map: OpenStreetMap • Powered by Leaflet</small>

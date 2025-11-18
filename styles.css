@@ -46,7 +46,7 @@ html, body {
   margin: 8px 0;
   font-size: 15px;
 }
-.places-list { list-style: none; padding: 0; margin: 0; }
+.places-list { list-style: none; padding: 0; margin: 0; display: block; }
 .places-list li { padding: 8px 10px; margin: 6px 0; background: #fff; border: 1px solid #e6e6ea; border-radius: 6px; cursor: pointer; }
 .count { font-weight: 600; color: #333; margin-left: 6px; font-size: 13px; }
 .place-name { font-weight: 600; }
@@ -54,23 +54,20 @@ html, body {
 /* Company colors */
 .company-airbus .place-name { color: #0074D9; }
 .company-thales .place-name { color: #e67e22; }
+.company-arianegroup .place-name { color: #ffd600; }
 
 .airbus-category h2 { color: #0074D9; }
 .thales-category h2 { color: #e67e22; }
 .ohb-category h2 { color: #2ecc40; }
+.arianegroup-category h2 { color: #ffd600; }
 
+.company-telespazio .place-name { color: #001f3f; }
+
+.telespazio-category h2 { color: #001f3f; }
 .company-ohb .place-name { color: #2ecc40; }
-
-.beyond-category h2 { color: #ff69b4; }
 .company-beyond .place-name { color: #ff69b4; }
-
-.sener-category h2 { color: #8e44ad; }
 .company-sener .place-name { color: #8e44ad; }
-
-.avio-category h2 { color: #e74c3c; }
 .company-avio .place-name { color: #e74c3c; }
-
-.safran-category h2 { color: #20b2aa; }
 .company-safran .place-name { color: #20b2aa; }
 
 #places li:hover { background: #f0f8ff; }
