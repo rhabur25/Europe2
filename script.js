@@ -950,13 +950,41 @@ const colombiaCountEl = document.getElementById('colombia-count');
 const costaricaCountEl = document.getElementById('costarica-count');
 const peruCountEl = document.getElementById('peru-count');
 const romaniaCountEl = document.getElementById('romania-count');
-if (argentinaCountEl) argentinaCountEl.textContent = `(${argentinaList ? argentinaList.children.length : 0})`;
-if (chileCountEl) chileCountEl.textContent = `(${chileList ? chileList.children.length : 0})`;
-if (brazilCountEl) brazilCountEl.textContent = `(${brazilList ? brazilList.children.length : 0})`;
-if (colombiaCountEl) colombiaCountEl.textContent = `(${colombiaList ? colombiaList.children.length : 0})`;
-if (costaricaCountEl) costaricaCountEl.textContent = `(${costaricaList ? costaricaList.children.length : 0})`;
-if (peruCountEl) peruCountEl.textContent = `(${peruList ? peruList.children.length : 0})`;
-if (romaniaCountEl) romaniaCountEl.textContent = `(${romaniaList ? romaniaList.children.length : 0})`;
+if (argentinaCountEl) {
+  const count = argentinaList ? argentinaList.children.length : 0;
+  argentinaCountEl.textContent = `(${count})`;
+  argentinaCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
+if (chileCountEl) {
+  const count = chileList ? chileList.children.length : 0;
+  chileCountEl.textContent = `(${count})`;
+  chileCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
+if (brazilCountEl) {
+  const count = brazilList ? brazilList.children.length : 0;
+  brazilCountEl.textContent = `(${count})`;
+  brazilCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
+if (colombiaCountEl) {
+  const count = colombiaList ? colombiaList.children.length : 0;
+  colombiaCountEl.textContent = `(${count})`;
+  colombiaCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
+if (costaricaCountEl) {
+  const count = costaricaList ? costaricaList.children.length : 0;
+  costaricaCountEl.textContent = `(${count})`;
+  costaricaCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
+if (peruCountEl) {
+  const count = peruList ? peruList.children.length : 0;
+  peruCountEl.textContent = `(${count})`;
+  peruCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
+if (romaniaCountEl) {
+  const count = romaniaList ? romaniaList.children.length : 0;
+  romaniaCountEl.textContent = `(${count})`;
+  romaniaCountEl.closest('.category').style.display = count === 0 ? 'none' : '';
+}
 const airbusCountEl = document.getElementById('airbus-count');
 const thalesCountEl = document.getElementById('thales-count');
 const ohbCountEl = document.getElementById('ohb-count');
