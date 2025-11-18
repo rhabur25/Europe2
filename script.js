@@ -807,7 +807,7 @@ const clusterGroup = L.markerClusterGroup({
 // Helper: create a simple SVG pin icon data URL for a given color
 function createPinIcon(color) {
   const svg = `<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="32" height="44" viewBox="0 0 32 44">` +
-    `<path d="M16 0C9.372 0 4 5.372 4 12c0 9.333 12 24 12 24s12-14.667 12-24c0-6.628-5.372-12-12-12z" fill="${color}" stroke="#333" stroke-width="1"/>` +
+    `<path d="M16 0C9.372 0 4 5.372 4 12c0 9.333 12 24 12 24s12-14.667 12-24c0-6.628-5.372-12-12-12z" fill="${color}" stroke="#333" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>` +
     `<circle cx="16" cy="12" r="5" fill="white" opacity="0.9"/>` +
     `</svg>`;
   const url = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
@@ -1033,6 +1033,38 @@ places.forEach(place => {
 });
 
 // Populate country zoom dropdown
+// Company dropdown filter
+const companyZoom = document.getElementById('company-zoom');
+if (companyZoom) {
+  companyZoom.addEventListener('change', function() {
+    const selectedCompany = this.value;
+    // Remove all markers from the map
+    clusterGroup.clearLayers();
+    // Add only selected company's markers (or all if none selected)
+    places.forEach(place => {
+      const marker = markers[place.id];
+      if (!selectedCompany || place.company === selectedCompany) {
+        clusterGroup.addLayer(marker);
+      }
+    });
+    // Hide/show sidebar sections for companies
+    const companySections = [
+      'airbus','thales','ohb','beyond','sener','avio','safran','arianegroup','telespazio'
+    ];
+    companySections.forEach(type => {
+      const section = document.querySelector(`.${type}-category`);
+      if (section) section.style.display = (!selectedCompany || selectedCompany === type) ? '' : 'none';
+    });
+    // Show/hide country sections for non-company filter
+    const countrySections = [
+      'argentina','chile','brazil','colombia','costarica','peru','romania'
+    ];
+    countrySections.forEach(type => {
+      const section = document.querySelector(`.${type}-category`);
+      if (section) section.style.display = (!selectedCompany) ? '' : 'none';
+    });
+  });
+}
 const countryZoom = document.getElementById('country-zoom');
 // Count companies per country
 const countryCounts = {};
@@ -1041,18 +1073,17 @@ places.forEach(place => {
   countryCounts[country] = (countryCounts[country] || 0) + 1;
 });
 
+const normalizeCountry = c => {
+  if (/^Argentina/.test(c)) return 'Argentina';
+  if (/^Brazil/.test(c)) return 'Brazil';
+  if (/^Chile/.test(c)) return 'Chile';
+  if (/^Colombia/.test(c)) return 'Colombia';
+  if (/^Costa Rica/.test(c)) return 'Costa Rica';
+  if (/^Peru/.test(c)) return 'Peru';
+  if (/^Romania/.test(c)) return 'Romania';
+  return c;
+};
 if (countryZoom) {
-  // Only show unique country names for Argentina, Brazil, Chile, not company/HQ variants
-  const normalizeCountry = c => {
-    if (/^Argentina/.test(c)) return 'Argentina';
-    if (/^Brazil/.test(c)) return 'Brazil';
-    if (/^Chile/.test(c)) return 'Chile';
-    if (/^Colombia/.test(c)) return 'Colombia';
-    if (/^Costa Rica/.test(c)) return 'Costa Rica';
-    if (/^Peru/.test(c)) return 'Peru';
-    if (/^Romania/.test(c)) return 'Romania';
-    return c;
-  };
   const uniqueCountries = Array.from(countrySet).map(normalizeCountry);
   const countryDisplaySet = Array.from(new Set(uniqueCountries));
   countryDisplaySet.sort().forEach(country => {
@@ -1078,11 +1109,49 @@ if (countryZoom) {
 const resetZoomBtn = document.getElementById('reset-zoom');
 if (resetZoomBtn) {
   resetZoomBtn.addEventListener('click', function() {
-    // Fit map to all markers
+    if (countryZoom) countryZoom.value = '';
+    if (companyZoom) companyZoom.value = '';
+    filterMapAndSidebar();
+    // Always fit map to all places, not just visible markers
     if (places.length) {
-      const bounds = clusterGroup.getBounds();
+      const allCoords = places.map(p => p.coords);
+      const bounds = L.latLngBounds(allCoords);
       if (bounds.isValid()) map.fitBounds(bounds.pad(0.2));
     }
-    if (countryZoom) countryZoom.value = '';
   });
 }
+function filterMapAndSidebar() {
+  const selectedCompany = companyZoom ? companyZoom.value : '';
+  const selectedCountry = countryZoom ? countryZoom.value : '';
+  // Remove all markers from the map
+  clusterGroup.clearLayers();
+  // Add only matching markers
+  places.forEach(place => {
+    const marker = markers[place.id];
+    const country = normalizeCountry(getCountry(place));
+    const companyMatch = !selectedCompany || place.company === selectedCompany;
+    const countryMatch = !selectedCountry || country === selectedCountry;
+    if (companyMatch && countryMatch) {
+      clusterGroup.addLayer(marker);
+    }
+  });
+  // Hide/show sidebar sections for companies
+  const companySections = [
+    'airbus','thales','ohb','beyond','sener','avio','safran','arianegroup','telespazio'
+  ];
+  companySections.forEach(type => {
+    const section = document.querySelector(`.${type}-category`);
+    if (section) section.style.display = (!selectedCompany || selectedCompany === type) && (!selectedCountry) ? '' : 'none';
+  });
+  // Show/hide country sections for non-company filter
+  const countrySections = [
+    'argentina','chile','brazil','colombia','costarica','peru','romania'
+  ];
+  countrySections.forEach(type => {
+    const section = document.querySelector(`.${type}-category`);
+    if (section) section.style.display = (!selectedCompany && (!selectedCountry || selectedCountry.toLowerCase() === type)) ? '' : 'none';
+  });
+}
+
+if (companyZoom) companyZoom.addEventListener('change', filterMapAndSidebar);
+if (countryZoom) countryZoom.addEventListener('change', filterMapAndSidebar);
